@@ -1,6 +1,8 @@
 #sideMenu {
 	border-right:5x solid #212121;
 	background-color: #E5E5E5;
+    position: fixed;
+    height: 100%;
 }
 
 #main-content-lists {
