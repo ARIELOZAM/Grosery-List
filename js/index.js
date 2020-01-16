@@ -6,8 +6,8 @@ function createListItems() {
 	for (i = 0; i < 4; i++) ramdomID += identifier.charAt(Math.floor(Math.random() * identifier.length));
 	//Generar Botones Editar
 	var editBtns = {
-		editBtn: document.createElement("button"),
-		eraseBtn: document.createElement("button"),
+		editBtn: document.createElement("button").innerHTML = "Editar",
+		eraseBtn: document.createElement("button").innerHTML = "Borrar",
 	}
 	var trContainer = document.createElement("tr");
 	var thContentId = document.createElement("th");
