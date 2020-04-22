@@ -1,14 +1,35 @@
+// Hide Alert (Success / Danger)
 $("#main-alert").hide();
+// Global Variables
+var lisTitle = document.getElementById("listitleinput").value;
+var listBody = document.getElementById("sideMenuList");
+// Create List Item Lists
+function createSaveList() {
+	var createList = {
+		mainDiv: document.createElement('a'),
+		mainDivAttr: mainDiv.setAttribute('class', 'list-group-item list-group-item-action'),
+		listTitle: document.getElementById('listitleinput').value,
+	}
+	if(listTitle === "") {
+		 console.log("Wrong!");
+		 }
+	else {
+		createList.mainDiv.appendChild();
+}
+}
 
+
+// Create List Item
 function createListItems() {
 	var identifier = "0123456789";
 	var ramdomID = "";
 	for (i = 0; i < 4; i++) ramdomID += identifier.charAt(Math.floor(Math.random() * identifier.length));
 	//Generar Botones Editar
 	var editBtns = {
-		editBtn: document.createElement("button").innerText = "Editar",
-		eraseBtn: document.createElement("button").innerText = "Borrar",
-	}
+		editBtn: document.createElement("button"),
+		eraseBtn: document.createElement("button"),
+	};
+	editBtns.editBtn.setAttribute("class", "btn btn-primary");
 	var trContainer = document.createElement("tr");
 	var thContentId = document.createElement("th");
 	var tdContentName = document.createElement("td");
@@ -23,7 +44,7 @@ function createListItems() {
 	var itemQuantity = document.createTextNode(itemQuantityValue);
 	var itemPriceValue = document.getElementById("itemPrice").value;
 	var itemPrice = document.createTextNode(itemQuantityValue * itemPriceValue);
-	var itemEditValue = editBtns.editBtn;
+	var itemEditValue = editBtns.edit
 	var itemEdit = (itemEditValue);
 	var containerListItems = document.getElementById("listItemContent");
 
