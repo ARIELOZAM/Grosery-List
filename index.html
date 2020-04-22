@@ -55,7 +55,7 @@
                     <div class="form-group row">
                         <input type="text" class="form-control col-md-6" placeholder="Item Name" id="itemName">
                         <select name="Quantity" class="form-control col-md-2" placeholder="Qunatity" id="itemQuantity">
-                            <option v-for="item in options" value="1">{{ quantity.option }}</option>
+                            <option v-for="quantity in quantitys" value="1">{{ quantity.option }}</option>
 
                         </select>
                         <input type="text" class="form-control col-md-2" placeholder="Price" id="itemPrice" onchange="sumar(this.value);">
