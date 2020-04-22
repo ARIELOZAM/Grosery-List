@@ -1,8 +1,8 @@
 #sideMenu {
 	border-right:5x solid #212121;
 	background-color: #E5E5E5;
-    position: fixed;
-    height: 100%;
+    position: relative;
+    height: 100vh;
 }
 
 #main-content-lists {
@@ -49,7 +49,7 @@
 
 @media screen and max-width(980px) {
 	#sideMenu {
-    position: absolute;
+    position: relative;
     width: 72%;
     z-index: 999;
     height: 100%;
