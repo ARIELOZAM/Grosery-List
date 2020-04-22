@@ -6,8 +6,8 @@ function createListItems() {
 	for (i = 0; i < 4; i++) ramdomID += identifier.charAt(Math.floor(Math.random() * identifier.length));
 	//Generar Botones Editar
 	var editBtns = {
-		editBtn: document.createElement("button").innerHTML = "Editar",
-		eraseBtn: document.createElement("button").innerHTML = "Borrar",
+		editBtn: document.createElement("button").innerText = "Editar",
+		eraseBtn: document.createElement("button").innerText = "Borrar",
 	}
 	var trContainer = document.createElement("tr");
 	var thContentId = document.createElement("th");
@@ -58,7 +58,7 @@ function createListItems() {
 }
 
 //Create Lists Menu
-var create
+var create;
 // JQ
 $(document).ready(function () {
 	$("#searchList").click(function () {
