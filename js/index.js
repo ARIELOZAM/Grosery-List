@@ -49,7 +49,7 @@ function createListItems() {
 	var containerListItems = document.getElementById("listItemContent");
 
 
-	if (itemNameValue == '' && itemPriceValue == '' itemQuantityValue === 0) {
+	if (itemNameValue == '' && itemPriceValue == '' && itemQuantityValue === 0) {
 			$("#main-alert").fadeTo(2000, 500).slideDown(1000, function () {
 				$("#main-alert").slideUp(500);
 			});
