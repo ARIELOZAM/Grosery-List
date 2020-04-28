@@ -26,7 +26,7 @@
          <div class="top-header-menu">
             <ul class="hMenu" id="">
                <li><a class="btn btn-primary" href="#" id="searchList"><i class="fas fa-search"></i></a><input type="search" class="form-control not-shown" id="searchInput" placeholder="Search..."></li>
-               <li><a class="btn btn-warning" href="#"><i class="fas fa-pen"></i></a></li>
+               <li><a class="btn btn-warning" href="#" id="editList"><i class="fas fa-pen"></i></a></li>
                <li><a class="btn btn-success" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i></a></li>
             </ul>
          </div>
@@ -37,10 +37,10 @@
                      <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">Lista de Compras</h5>
 											 <br>
-                        <small>15-Feb-2019</small>
+                        <small id="listDate">15-Feb-2019</small>
                      </div>
-                     <p class="mb-1">Mikes Birthday...</p>
-                     <small>Payday, food, fruit...</small>
+                     <p class="mb-1" id="listDescription">Mikes Birthday...</p>
+                     <small id="tags">Payday, food, fruit...</small>
                   </a>
                </div>
             </div>
@@ -55,12 +55,12 @@
          <form action="" class="horizontal-form">
             <div class="form-group row">
                <input type="text" class="form-control col-md-6" placeholder="Item Name" id="itemName">
-               <select name="Quantity" class="form-control col-md-2" placeholder="Qunatity" id="itemQuantity"> 
-                <option value="0">Selecciona una Cantidadå</option> 
-               <option v-for="quantity in amount" v-bind:value="quantity.value">{{ quantity.option }}</option> 
-               </select> 
-               <input type="text" class="form-control col-md-2" placeholder="Price" id="itemPrice" onchange="sumar(this.value);">
-               <button type="button" id="addItem" class="btn btn-success btn-block col-md-2" onclick="createListItems();">Add Item</button>
+               <select name="Quantity" class="form-control col-md-2" placeholder="Qunatity" id="itemQuantity">
+                <option value="0">Select a Number</option>
+               <option v-for="quantity in amount" v-bind:value="quantity.value">{{ quantity.option }}</option>
+               </select>
+               <input type="number" class="form-control col-md-2" placeholder="Price" id="itemPrice">
+               <button type="button" id="addItem" class="btn btn-success col-md-2" onclick="createListItems();">Add Item</button>
             </div>
             <br>
             <div id="">
@@ -80,7 +80,7 @@
                      <td></td>
                      <td></td>
                      <td>Total</td>
-                     <td></td>
+                     <td id="totalPrice"></td>
                      <td></td>
                   </tfooter>
                </table>

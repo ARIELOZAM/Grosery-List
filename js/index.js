@@ -1,10 +1,11 @@
 // Hide Alert (Success / Danger)
 $("#main-alert").hide();
 // Global Variables
-var lisTitle = document.getElementById("listitleinput").value;
-var listBody = document.getElementById("sideMenuList");
+
 // Create List Item Lists
 function createSaveList() {
+	var lisTitle = document.getElementById("listitleinput").value;
+	var listBody = document.getElementById("sideMenuList");
 	var createList = {
 		mainDiv: document.createElement('a'),
 		mainDivAttr: mainDiv.setAttribute('class', 'list-group-item list-group-item-action'),
@@ -30,6 +31,10 @@ function createListItems() {
 		eraseBtn: document.createElement("button"),
 	};
 	editBtns.editBtn.setAttribute("class", "btn btn-primary");
+	editBtns.editBtn.innerText = "Edit";
+	editBtns.eraseBtn.setAttribute("class", "btn btn-danger");
+	editBtns.eraseBtn.innerText = "Delete";
+
 	var trContainer = document.createElement("tr");
 	var thContentId = document.createElement("th");
 	var tdContentName = document.createElement("td");
@@ -44,23 +49,50 @@ function createListItems() {
 	var itemQuantity = document.createTextNode(itemQuantityValue);
 	var itemPriceValue = document.getElementById("itemPrice").value;
 	var itemPrice = document.createTextNode(itemQuantityValue * itemPriceValue);
-	var itemEditValue = editBtns.edit
+	var itemEditValue = editBtns.editBtn;
+	var itemEraseValue = editBtns.eraseBtn;
 	var itemEdit = (itemEditValue);
+	var itemErase = (itemEraseValue);
 	var containerListItems = document.getElementById("listItemContent");
+	const nameItems = [];
+	const itemsId = [];
+	const totalPrice = [];
+	var getTotalPrice = itemPriceValue * itemQuantityValue;
+	var getTotalContainer = document.getElementById("totalPrice");
+	var sumaPrice = 0;
 
-
-	if (itemNameValue == '' && itemPriceValue == '' && itemQuantityValue === 0) {
+	if (itemNameValue == '') {
 			$("#main-alert").fadeTo(2000, 500).slideDown(1000, function () {
 				$("#main-alert").slideUp(500);
 			});
 		document.getElementById("main-alert").setAttribute("class", "alert alert-danger text-center")
 		document.getElementById("main-alert").innerHTML = "Add at Least an Item"
-	} else {
+	}
+
+	else if (itemQuantityValue === "0") {
+		$("#main-alert").fadeTo(2000, 500).slideDown(1000, function () {
+			$("#main-alert").slideUp(500);
+		});
+	document.getElementById("main-alert").setAttribute("class", "alert alert-danger text-center")
+	document.getElementById("main-alert").innerHTML = "Select a Number"
+	}
+
+	else if (itemPriceValue == '') {
+		$("#main-alert").fadeTo(2000, 500).slideDown(1000, function () {
+			$("#main-alert").slideUp(500);
+		});
+	document.getElementById("main-alert").setAttribute("class", "alert alert-danger text-center")
+	document.getElementById("main-alert").innerHTML = "Need to Put a Price"
+	}
+
+	else {
 					$("#main-alert").fadeTo(2000, 500).slideDown(1000, function () {
 				$("#main-alert").slideUp(500);
 			});
 		document.getElementById("main-alert").setAttribute("class", "alert alert-success text-center")
 		document.getElementById("main-alert").innerHTML = "Item Added"
+
+		// Creating Data Listing
 		containerListItems.appendChild(trContainer);
 		trContainer.appendChild(thContentId);
 		thContentId.setAttribute("scope", "row")
@@ -73,8 +105,17 @@ function createListItems() {
 		trContainer.appendChild(tdContentPrice);
 		tdContentPrice.appendChild(itemPrice);
 		trContainer.appendChild(tdContentPrice);
+		tdContentEdit.setAttribute("id", "editButtons");
 		tdContentEdit.appendChild(itemEdit);
+		tdContentEdit.appendChild(itemErase);
 		trContainer.appendChild(tdContentEdit);
+		nameItems.push(itemNameValue);
+		totalPrice.push(getTotalPrice);
+		totalPrice.forEach (function(price){
+        sumaPrice += price;
+    });
+		getTotalContainer.innerText = sumaPrice;
+		console.log(totalPrice);
 	}
 }
 
