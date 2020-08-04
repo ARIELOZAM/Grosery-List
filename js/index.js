@@ -54,9 +54,9 @@ function createListItems() {
 	var itemEdit = (itemEditValue);
 	var itemErase = (itemEraseValue);
 	var containerListItems = document.getElementById("listItemContent");
-	const nameItems = [];
-	const itemsId = [];
-	const totalPrice = [];
+	var nameItems = [];
+	var itemsId = [];
+	var totalPrice = [];
 	var getTotalPrice = itemPriceValue * itemQuantityValue;
 	var getTotalContainer = document.getElementById("totalPrice");
 	var sumaPrice = 0;
@@ -104,20 +104,23 @@ function createListItems() {
 		tdContentQuantity.appendChild(itemQuantity)
 		trContainer.appendChild(tdContentPrice);
 		tdContentPrice.appendChild(itemPrice);
-		trContainer.appendChild(tdContentPrice);
+		tdContentPrice.setAttribute("class", "pricingProduct");
 		tdContentEdit.setAttribute("id", "editButtons");
 		tdContentEdit.appendChild(itemEdit);
 		tdContentEdit.appendChild(itemErase);
 		trContainer.appendChild(tdContentEdit);
 		nameItems.push(itemNameValue);
 		totalPrice.push(getTotalPrice);
-		totalPrice.forEach (function(price){
-        sumaPrice += price;
-    });
-		getTotalContainer.innerText = sumaPrice;
-		console.log(totalPrice);
+		$('.pricingProduct').each(function()
+		{
+		    sumaPrice += parseFloat($(this).text());
+		});
+		document.getElementById("totalPrice").innerText = "$" + sumaPrice;
+		}
+		console.log(sumaPrice);
 	}
-}
+
+
 
 //Create Lists Menu
 var create;

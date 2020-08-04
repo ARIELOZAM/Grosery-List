@@ -47,20 +47,21 @@
          </div>
       </div> -->
       <div class="col-md-12" id="main-content-lists">
-         <span class="text-center">
-            <h1 id="listitle">List Title</h1>
-					 	<p id="listdescription">List Description...</p>
+        <span class="text-center">
+            <h1 id="listitle">GROCERY LIST</h1>
+					 	<!-- <p id="listdescription">List Description...</p>
 					 <div class="text-muted pb-3" id="listtags">Tags...</div>
+            -->
          </span>
-         <form action="" class="horizontal-form">
+         <form action="" class="horizontal-form my-5">
             <div class="form-group row">
-               <input type="text" class="form-control col-md-6" placeholder="Item Name" id="itemName">
-               <select name="Quantity" class="form-control col-md-2" placeholder="Qunatity" id="itemQuantity">
+               <input type="text" class="form-control col-md-6 my-2" placeholder="Item Name" id="itemName">
+               <select name="Quantity" class="form-control col-md-2 my-2" placeholder="Qunatity" id="itemQuantity">
                 <option value="0">Select a Number</option>
                <option v-for="quantity in amount" v-bind:value="quantity.value">{{ quantity.option }}</option>
                </select>
-               <input type="number" class="form-control col-md-2" placeholder="Price" id="itemPrice">
-               <button type="button" id="addItem" class="btn btn-success col-md-2" onclick="createListItems();">Add Item</button>
+               <input type="number" class="form-control col-md-2 my-2" placeholder="Price" id="itemPrice">
+               <button type="button" id="addItem" class="btn btn-success col-md-2 my-2" onclick="createListItems();">Add Item</button>
             </div>
             <br>
             <div id="">
